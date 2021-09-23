@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.webprj.di.entity.Reservation;
 
-public interface RsvDao {
+public interface rsvDao {
 	Reservation getReservation(int rsvno);
 
 	List<Reservation> getReservations(String query);

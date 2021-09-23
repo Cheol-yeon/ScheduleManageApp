@@ -13,10 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.webprj.di.entity.Manager;
 import com.webprj.di.entity.Professor;
 import com.webprj.di.entity.Student;
 import com.webprj.di.entity.Studio;
 import com.webprj.studio.dao.LoginJdbcDao;
+import com.webprj.studio.dao.ManagerJdbcDao;
 import com.webprj.studio.dao.StudioJdbcDao;
 
 /**
@@ -29,6 +31,7 @@ public class StudioController extends HttpServlet {
 	private LoginJdbcDao loginJdbc = null;
 	private StudioJdbcDao studioJdbc=null;
 	private HttpSession session = null;
+	private ManagerJdbcDao manJdbc = null;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -50,6 +53,7 @@ public class StudioController extends HttpServlet {
 
 		loginJdbc = new LoginJdbcDao(driver, url, userName, password);
 		studioJdbc= new StudioJdbcDao(driver, url, userName, password);
+		manJdbc = new ManagerJdbcDao(driver, url, userName, password);
 	}
 
 	/**
@@ -86,6 +90,14 @@ public class StudioController extends HttpServlet {
 
 				if (selectLoginType.equals("admin")) {
 					System.out.println("관리자");
+					
+					Manager manager = new Manager();
+					manager = manJdbc.getManager(inputID);
+					
+					session.setAttribute("manager", manager);
+					System.out.println(manager.getManname());
+					
+					viewName = "/WEB-INF/view/managerMain.jsp";
 
 				} else if (selectLoginType.equals("professor")) {
 					System.out.println("교직원");
