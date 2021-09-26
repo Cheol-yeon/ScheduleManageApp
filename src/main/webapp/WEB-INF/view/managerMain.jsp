@@ -16,14 +16,38 @@
 <link href="/css/main.css" rel="stylesheet" type="text/css">
 <link href="/css/reset.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
-function checkTest(form)
-{
-	if(form.check.checked==true){
-		form.studio.hide = true;
+
+function checkTest(test)
+{	
+	if(test.check.checked==true){
+		test.studio.disabled = true;
 	} else {
-		form.studio.hide = false;
+		test.studio.disabled = false;
 	}
 }
+
+/* function checkTest2(test)
+{
+	if(test.check.checked==true){
+		test.rental.disabled = true;
+	} else {
+		test.rental.disabled = false;
+	}
+}
+ */
+/* function checkTest()
+{
+	var x = document.getElementById("banana");
+	var y = getFirstChild(x);
+	var z = getLastChild(x);
+	alert(idName);
+	
+	if(z.checked==true){
+		y.disabled = true;
+	} else {
+		y.disabled = false;
+	}
+} */
 
 </script>
 </head>
@@ -39,11 +63,14 @@ function checkTest(form)
 	<br>
 	<br>
 	<div class="btnContainer">
-		<form>
-		<input type="button" name="studio" value="studio" onclick="location.href='/studio'" />
-		<input type="checkbox" name="check" onClick="checkTest(this.form)">
+		<form id="banana">
+		<input type="button" name="studio" id="studio" value="studio" onclick="location.href='/studio'" />
+		<input type="checkbox" name="check" onClick="checkTest(banana)">
 		</form>
-		<input type="button" value="rental" onclick="location.href='/rental'" />
+		<form id="peach">
+		<input type="button" name="rental" id="rental" value="rental" onclick="location.href='/rental'" />
+		<input type="checkbox" name="check" onClick="checkTest(peach)">
+		</form>
 		<input type="button" value="btn3" onclick="location.href='/btn3'" />
 		<input type="button" value="btn4" onclick="location.href='/btn4'" />
 	</div>

@@ -1,15 +1,16 @@
 package com.webprj.di.entity;
 
 public class Department {
-	private int deptno; // 학과번호
-	private String name; // 학과이름
+	private int deptno; // 부서 번호
+	private String deptname; // 부서 이름
+	private String phone; // 부서 전화
+	
+	public Department() {}
 
-	public Department() {
-	}
-
-	public Department(int deptno, String name) {
+	public Department(int deptno, String deptname, String phone) {
 		this.deptno = deptno;
-		this.name = name;
+		this.deptname = deptname;
+		this.phone = phone;
 	}
 
 	public int getDeptno() {
@@ -20,16 +21,25 @@ public class Department {
 		this.deptno = deptno;
 	}
 
-	public String getName() {
-		return name;
+	public String getDeptname() {
+		return deptname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDeptname(String deptname) {
+		this.deptname = deptname;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	@Override
 	public String toString() {
-		return "Department [deptno=" + deptno + ", name=" + name + "]";
+		return "Department [deptno=" + deptno + ", deptname=" + deptname + ", phone=" + phone + "]";
 	}
+
 }
