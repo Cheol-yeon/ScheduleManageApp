@@ -3,12 +3,12 @@ package com.webprj.Control;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class MainControl
@@ -37,10 +37,21 @@ public class MainControl extends HttpServlet {
 		
 		if (pathInfo.equals("/index")) { // 가장처음 진입페이지
 			
-			  RequestDispatcher view =
-			  request.getRequestDispatcher("/WEB-INF/view/managerMain.jsp");
-			 
+			HttpSession session = request.getSession(false);
+			if(session != null) {
+				String checked[] = request.getParameterValues("checkTest");
+				for(int i=0; i<checked.length; i++) {
+					System.out.println(checked[i]);
+				}
+				request.setAttribute("checkedbox", checked);
+			}
 			
+			
+			
+			RequestDispatcher view =
+			  request.getRequestDispatcher("/WEB-INF/view/main.jsp");
+			 
+			  
 				/*
 				 * RequestDispatcher view =
 				 * request.getRequestDispatcher("/WEB-INF/view/calendar(jsp+js).jsp");

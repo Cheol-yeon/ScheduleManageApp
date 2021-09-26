@@ -34,12 +34,6 @@
 	</div>
 	<br>
 	<br>
-	<div class="btnContainer">
-		<input type="button" value="studio" onclick="location.href='/studio'" />
-		<input type="button" value="rental" onclick="location.href='/rental'" />
-		<input type="button" value="btn3" onclick="location.href='/btn3'" />
-		<input type="button" value="btn4" onclick="location.href='/btn4'" />
-	</div>
 
 
 	<!-- 돌아가기 버튼구현 <input type="button" value="이전으로 돌아가기" onclick="window.history.go(-1);"/> -->

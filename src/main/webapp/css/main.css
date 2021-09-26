@@ -20,6 +20,12 @@ input {
 	margin: 0 auto;
 }
 
+.checkContainer {
+	width : 900px;
+	margin : 0 auto;
+	text-align: center;
+}
+
 #icon {
 	color: gray;
 	margin-left: 93%;
